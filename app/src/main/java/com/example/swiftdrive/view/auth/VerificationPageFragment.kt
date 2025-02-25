@@ -19,6 +19,9 @@ class VerificationPageFragment : Fragment() {
         binding.submitOtp.setOnClickListener {
             findNavController().navigate(R.id.action_verificationPageFragment_to_resetPasswordPageFragment)
         }
+        binding.backArrow.setOnClickListener {
+            findNavController().navigateUp()
+        }
         return binding.root
     }
 }

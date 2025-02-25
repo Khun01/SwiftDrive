@@ -204,9 +204,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Signup using Google"
-            android:textColor="#EEEEEE"
+            android:text="Sign in using Google"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="16sp"
+            android:fontFamily="@font/quicksand_bold"
             android:layout_marginStart="8dp"/>
 
     </LinearLayout>

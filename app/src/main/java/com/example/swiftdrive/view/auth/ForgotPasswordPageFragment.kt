@@ -22,6 +22,9 @@ class ForgotPasswordPageFragment : Fragment() {
         binding.sendEmail.setOnClickListener {
             findNavController().navigate(R.id.action_forgotPasswordPageFragment_to_verificationPageFragment)
         }
+        binding.backArrow.setOnClickListener {
+            findNavController().navigateUp()
+        }
         return binding.root
     }
 }
