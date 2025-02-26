@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.swiftdrive.R
 import com.example.swiftdrive.databinding.FragmentHomePageBinding
-import com.example.swiftdrive.databinding.FragmentLoginPageBinding
-import com.example.swiftdrive.model.adapter.AnnouncementAdapter
-import com.example.swiftdrive.model.adapter.MostPopularVehiclesAdapter
-import com.example.swiftdrive.model.adapter.RecommendedForYouAdapter
-import com.example.swiftdrive.model.data.Announcement
-import com.example.swiftdrive.model.data.MostPopularVehicles
-import com.example.swiftdrive.model.data.RecommendedForYou
+import com.example.swiftdrive.view.adapter.AnnouncementAdapter
+import com.example.swiftdrive.view.adapter.MostPopularVehiclesAdapter
+import com.example.swiftdrive.view.adapter.RecommendedForYouAdapter
+import com.example.swiftdrive.model.Announcement
+import com.example.swiftdrive.model.MostPopularVehicles
+import com.example.swiftdrive.model.RecommendedForYou
 
 class HomePageFragment : Fragment() {
 
@@ -67,8 +64,14 @@ class HomePageFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = mostPopularVehicleAdapter
         }
+
+        val myLinearLayoutManager = object : LinearLayoutManager(requireContext()) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
         binding.recommendedForYouRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = myLinearLayoutManager
             adapter = recommendedForYouAdapter
         }
     }

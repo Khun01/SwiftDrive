@@ -1,13 +1,10 @@
-package com.example.swiftdrive.model.adapter
+package com.example.swiftdrive.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.swiftdrive.R
 import com.example.swiftdrive.databinding.CardAnnouncementBinding
-import com.example.swiftdrive.model.data.Announcement
+import com.example.swiftdrive.model.Announcement
 
 class AnnouncementAdapter(private val announcementList: ArrayList<Announcement>): RecyclerView.Adapter<AnnouncementAdapter.ViewHolderClass>() {
 

@@ -44,6 +44,7 @@ class WrapperFragment : Fragment() {
                 binding.v1.visibility = View.GONE
             } else {
                 binding.toolbar.visibility = View.VISIBLE
+                binding.v1.visibility = View.VISIBLE
             }
         }
     }
