@@ -3,12 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp"
     android:paddingVertical="24dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.LandingPageFragment">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="?attr/colorOnPrimary"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-170dp"
+        android:background="@drawable/landing_page_bg"
+        app:layout_constraintBottom_toTopOf="@+id/heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drive Your Way with Ease!"
@@ -17,6 +37,7 @@
         android:textSize="24sp"
         android:textColor="?attr/colorOnPrimary"
         android:layout_marginBottom="24dp"
+        android:paddingHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv2"/>
@@ -31,6 +52,7 @@
         android:textSize="16sp"
         android:textColor="?attr/colorOnSecondary"
         android:layout_marginBottom="32dp"
+        android:paddingHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/getStarted"/>
@@ -45,6 +67,7 @@
         android:textSize="16sp"
         android:textColor="#EEEEEE"
         android:background="@drawable/border_radius"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@id/tv1" />
 
     <TextView
