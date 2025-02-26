@@ -81,13 +81,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <View
-        android:id="@+id/v1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/colorOnSurfaceVariant"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainFragmentContainer"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -97,6 +90,13 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:defaultNavHost="true"
         tools:ignore="MergeRootFrame"/>
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorOnSurfaceVariant"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
     <View
         android:layout_width="match_parent"
