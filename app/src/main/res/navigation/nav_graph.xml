@@ -24,6 +24,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_loginPageFragment_to_wrapperFragment"
+            app:destination="@id/wrapperFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/landingPageFragment"
@@ -97,4 +104,37 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/wrapperFragment"
+        android:name="com.example.swiftdrive.view.mainPage.WrapperFragment"
+        android:label="fragment_wrapper"
+        tools:layout="@layout/fragment_wrapper" >
+        <action
+            android:id="@+id/action_wrapperFragment_to_main_nav_graph"
+            app:destination="@id/main_nav_graph"/>
+    </fragment>
+    <navigation
+        android:id="@+id/main_nav_graph"
+        app:startDestination="@id/homePageFragment">
+        <fragment
+            android:id="@+id/homePageFragment"
+            android:name="com.example.swiftdrive.view.mainPage.HomePageFragment"
+            android:label="fragment_home_page"
+            tools:layout="@layout/fragment_home_page"/>
+        <fragment
+            android:id="@+id/reservePageFragment"
+            android:name="com.example.swiftdrive.view.mainPage.ReservePageFragment"
+            android:label="fragment_reserve_page"
+            tools:layout="@layout/fragment_reserve_page" />
+        <fragment
+            android:id="@+id/mapPageFragment"
+            android:name="com.example.swiftdrive.view.mainPage.MapPageFragment"
+            android:label="fragment_map_page"
+            tools:layout="@layout/fragment_map_page" />
+        <fragment
+            android:id="@+id/profilePageFragment"
+            android:name="com.example.swiftdrive.view.mainPage.ProfilePageFragment"
+            android:label="fragment_profile_page"
+            tools:layout="@layout/fragment_profile_page" />
+    </navigation>
 </navigation>

@@ -16,15 +16,22 @@ class LoginPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginPageBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.register.setOnClickListener {
             findNavController().navigate(R.id.action_loginPageFragment_to_registerPageFragment)
         }
         binding.forgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginPageFragment_to_forgotPasswordPageFragment)
         }
+        binding.loginBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_loginPageFragment_to_wrapperFragment)
+        }
         binding.backArrow.setOnClickListener {
             findNavController().navigateUp()
         }
-        return binding.root
     }
 }

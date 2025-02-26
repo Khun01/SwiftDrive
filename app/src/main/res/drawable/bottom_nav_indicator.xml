@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Active state: Shows the line -->
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:drawable="@android:color/transparent" />
+            <item
+                android:gravity="bottom">
+                <inset
+                    android:insetLeft="20dp"
+                    android:insetRight="20dp">
+                    <shape android:shape="rectangle">
+                        <size android:height="4dp" />
+                        <solid android:color="?attr/colorPrimary" />
+                        <corners
+                            android:topLeftRadius="2dp"
+                            android:topRightRadius="2dp"/>
+                    </shape>
+                </inset>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Inactive state: No background -->
+    <item>
+        <color android:color="@android:color/transparent" />
+    </item>
+
+</selector>
