@@ -12,8 +12,7 @@ import com.example.swiftdrive.R
 import androidx.navigation.fragment.findNavController
 import com.example.swiftdrive.repository.AuthRepository
 import com.example.swiftdrive.databinding.FragmentLoginPageBinding
-import com.example.swiftdrive.pages.viewModel.AuthViewModel
-import com.example.swiftdrive.viewModel.AuthViewModelFactory
+import com.example.swiftdrive.viewModel.AuthViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 

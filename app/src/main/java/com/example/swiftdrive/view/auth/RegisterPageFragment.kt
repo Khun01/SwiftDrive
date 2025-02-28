@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.swiftdrive.R
 import com.example.swiftdrive.repository.AuthRepository
 import com.example.swiftdrive.databinding.FragmentRegisterPageBinding
-import com.example.swiftdrive.pages.viewModel.AuthViewModel
+import com.example.swiftdrive.viewModel.AuthViewModel
 import com.example.swiftdrive.viewModel.AuthViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
@@ -21,7 +21,7 @@ class RegisterPageFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterPageBinding
     private val authViewModel: AuthViewModel by viewModels {
-        com.example.swiftdrive.viewModel.AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance()))
+        AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance()))
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
