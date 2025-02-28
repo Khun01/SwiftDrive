@@ -1,4 +1,4 @@
-package com.example.swiftdrive.data.model
+package com.example.swiftdrive.model
 
 data class Announcement(
     var heading:String,

@@ -1,4 +1,4 @@
-package com.example.swiftdrive.data.repository
+package com.example.swiftdrive.repository
 
 import android.util.Log
 import com.google.firebase.auth.AuthResult

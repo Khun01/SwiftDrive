@@ -1,4 +1,4 @@
-package com.example.swiftdrive.pages.view.auth
+package com.example.swiftdrive.view.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.swiftdrive.R
 import androidx.navigation.fragment.findNavController
-import com.example.swiftdrive.data.repository.AuthRepository
+import com.example.swiftdrive.repository.AuthRepository
 import com.example.swiftdrive.databinding.FragmentLoginPageBinding
 import com.example.swiftdrive.pages.viewModel.AuthViewModel
-import com.example.swiftdrive.pages.viewModel.AuthViewModelFactory
+import com.example.swiftdrive.viewModel.AuthViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
@@ -21,7 +21,7 @@ class LoginPageFragment : Fragment() {
 
     private  lateinit var  binding: FragmentLoginPageBinding
     private val authViewModel: AuthViewModel by viewModels {
-        AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance()))
+        com.example.swiftdrive.viewModel.AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance()))
     }
 
     override fun onCreateView(

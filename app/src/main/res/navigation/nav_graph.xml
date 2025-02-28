@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/verificationPageFragment"
-        android:name="com.example.swiftdrive.pages.view.auth.VerificationPageFragment"
+        android:name="com.example.swiftdrive.view.auth.VerificationPageFragment"
         android:label="fragment_verification_page"
         tools:layout="@layout/fragment_verification_page" >
         <action

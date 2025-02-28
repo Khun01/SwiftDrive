@@ -1,9 +1,9 @@
-package com.example.swiftdrive.pages.viewModel
+package com.example.swiftdrive.viewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.swiftdrive.data.repository.AuthRepository
+import com.example.swiftdrive.repository.AuthRepository
 import com.google.firebase.auth.AuthResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

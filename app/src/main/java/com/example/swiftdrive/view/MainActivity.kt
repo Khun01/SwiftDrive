@@ -1,4 +1,4 @@
-package com.example.swiftdrive.pages.view
+package com.example.swiftdrive.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

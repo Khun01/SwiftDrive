@@ -1,4 +1,4 @@
-package com.example.swiftdrive.pages.view.mainPage
+package com.example.swiftdrive.view.mainPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.swiftdrive.databinding.FragmentReservePageBinding
 import com.example.swiftdrive.pages.view.adapter.RecommendedForYouAdapter
-import com.example.swiftdrive.data.model.RecommendedForYou
+import com.example.swiftdrive.model.RecommendedForYou
 
 class ReservePageFragment : Fragment() {
     private lateinit var binding: FragmentReservePageBinding
