@@ -1,4 +1,4 @@
-package com.example.swiftdrive.view.mainPage
+package com.example.swiftdrive.pages.view.mainPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.swiftdrive.databinding.FragmentHomePageBinding
-import com.example.swiftdrive.view.adapter.AnnouncementAdapter
-import com.example.swiftdrive.view.adapter.MostPopularVehiclesAdapter
-import com.example.swiftdrive.view.adapter.RecommendedForYouAdapter
-import com.example.swiftdrive.model.Announcement
-import com.example.swiftdrive.model.MostPopularVehicles
-import com.example.swiftdrive.model.RecommendedForYou
+import com.example.swiftdrive.pages.view.adapter.AnnouncementAdapter
+import com.example.swiftdrive.pages.view.adapter.MostPopularVehiclesAdapter
+import com.example.swiftdrive.pages.view.adapter.RecommendedForYouAdapter
+import com.example.swiftdrive.data.model.Announcement
+import com.example.swiftdrive.data.model.MostPopularVehicles
+import com.example.swiftdrive.data.model.RecommendedForYou
 
 class HomePageFragment : Fragment() {
 

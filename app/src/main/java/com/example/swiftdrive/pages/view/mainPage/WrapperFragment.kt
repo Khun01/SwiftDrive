@@ -1,4 +1,4 @@
-package com.example.swiftdrive.view.mainPage
+package com.example.swiftdrive.pages.view.mainPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

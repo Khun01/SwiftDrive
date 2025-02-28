@@ -1,10 +1,10 @@
-package com.example.swiftdrive.view.adapter
+package com.example.swiftdrive.pages.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swiftdrive.databinding.CardRecommendedForYouBinding
-import com.example.swiftdrive.model.RecommendedForYou
+import com.example.swiftdrive.data.model.RecommendedForYou
 
 class RecommendedForYouAdapter(private val recommendedForYouList: ArrayList<RecommendedForYou>): RecyclerView.Adapter<RecommendedForYouAdapter.ViewHolderClass>() {
 

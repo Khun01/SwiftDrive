@@ -1,4 +1,4 @@
-package com.example.swiftdrive.view.auth
+package com.example.swiftdrive.pages.view.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

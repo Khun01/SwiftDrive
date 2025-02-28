@@ -1,10 +1,10 @@
-package com.example.swiftdrive.view.adapter
+package com.example.swiftdrive.pages.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swiftdrive.databinding.CardMostPopularVehicleBinding
-import com.example.swiftdrive.model.MostPopularVehicles
+import com.example.swiftdrive.data.model.MostPopularVehicles
 
 class MostPopularVehiclesAdapter(private val mostPopularVehiclesList: ArrayList<MostPopularVehicles>): RecyclerView.Adapter<MostPopularVehiclesAdapter.ViewHolderClass>() {
 
