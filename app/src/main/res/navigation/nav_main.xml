@@ -37,5 +37,31 @@
         android:id="@+id/twoFactorAuthPageFragment"
         android:name="com.example.swiftdrive.view.profile.TwoFactorAuthPageFragment"
         android:label="fragment_two_factor_auth_page"
-        tools:layout="@layout/fragment_two_factor_auth_page" />
+        tools:layout="@layout/fragment_two_factor_auth_page" >
+        <action
+            android:id="@+id/action_twoFactorAuthPageFragment_to_twoFactoAuthOtpFragment"
+            app:destination="@id/twoFactoAuthOtpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoFactoAuthOtpFragment"
+        android:name="com.example.swiftdrive.view.profile.TwoFactoAuthOtpFragment"
+        android:label="fragment_two_facto_auth_otp"
+        tools:layout="@layout/fragment_two_facto_auth_otp" >
+        <action
+            android:id="@+id/action_twoFactoAuthOtpFragment_to_twoFactorAuthCompletedFragment"
+            app:destination="@id/twoFactorAuthCompletedFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoFactorAuthCompletedFragment"
+        android:name="com.example.swiftdrive.view.profile.TwoFactorAuthCompletedFragment"
+        android:label="fragment_two_factor_auth_completed"
+        tools:layout="@layout/fragment_two_factor_auth_completed" />
 </navigation>

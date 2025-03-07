@@ -7,20 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.swiftdrive.R
-import com.example.swiftdrive.databinding.FragmentTwoFactorAuthPageBinding
+import com.example.swiftdrive.databinding.FragmentTwoFactoAuthOtpBinding
 
-class TwoFactorAuthPageFragment : Fragment() {
-    private lateinit var binding: FragmentTwoFactorAuthPageBinding
+class TwoFactoAuthOtpFragment : Fragment() {
+    private lateinit var binding: FragmentTwoFactoAuthOtpBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentTwoFactorAuthPageBinding.inflate(inflater, container, false)
+    ): View{
+        binding = FragmentTwoFactoAuthOtpBinding.inflate(inflater, container, false)
+        binding.confirmBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_twoFactoAuthOtpFragment_to_twoFactorAuthCompletedFragment)
+        }
         binding.backArrow.setOnClickListener {
             findNavController().navigateUp()
-        }
-        binding.confirmBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_twoFactorAuthPageFragment_to_twoFactoAuthOtpFragment)
         }
         return binding.root
     }
