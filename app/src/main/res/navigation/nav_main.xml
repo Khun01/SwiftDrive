@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.swiftdrive.view.mainPage.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" />
+    <fragment
+        android:id="@+id/mapPageFragment"
+        android:name="com.example.swiftdrive.view.mainPage.MapPageFragment"
+        android:label="fragment_map_page"
+        tools:layout="@layout/fragment_map_page" />
+    <fragment
+        android:id="@+id/reservePageFragment"
+        android:name="com.example.swiftdrive.view.mainPage.ReservePageFragment"
+        android:label="fragment_reserve_page"
+        tools:layout="@layout/fragment_reserve_page" />
+    <fragment
+        android:id="@+id/profilePageFragment"
+        android:name="com.example.swiftdrive.view.mainPage.ProfilePageFragment"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile_page" >
+        <action
+            android:id="@+id/action_profilePageFragment_to_twoFactorAuthPageFragment"
+            app:destination="@id/twoFactorAuthPageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoFactorAuthPageFragment"
+        android:name="com.example.swiftdrive.view.profile.TwoFactorAuthPageFragment"
+        android:label="fragment_two_factor_auth_page"
+        tools:layout="@layout/fragment_two_factor_auth_page" />
+</navigation>

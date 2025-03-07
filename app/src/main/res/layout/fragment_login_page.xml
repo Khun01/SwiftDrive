@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:paddingVertical="24dp"
-    tools:context=".pages.view.auth.LoginPageFragment">
+    tools:context=".view.auth.LoginPageFragment">
 
     <ImageView
         android:id="@+id/backArrow"

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginPageFragment"
-        android:name="com.example.swiftdrive.pages.view.auth.LoginPageFragment"
+        android:name="com.example.swiftdrive.view.auth.LoginPageFragment"
         android:label="fragment_login_page"
         tools:layout="@layout/fragment_login_page" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/landingPageFragment"
-        android:name="com.example.swiftdrive.pages.view.LandingPageFragment"
+        android:name="com.example.swiftdrive.view.LandingPageFragment"
         android:label="fragment_landing_page"
         tools:layout="@layout/fragment_landing_page" >
         <action
@@ -51,10 +51,17 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_wrapperFragment"
+            app:destination="@id/wrapperFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/registerPageFragment"
-        android:name="com.example.swiftdrive.pages.view.auth.RegisterPageFragment"
+        android:name="com.example.swiftdrive.view.auth.RegisterPageFragment"
         android:label="fragment_register_page"
         tools:layout="@layout/fragment_register_page" >
         <action
@@ -67,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordPageFragment"
-        android:name="com.example.swiftdrive.pages.view.auth.ForgotPasswordPageFragment"
+        android:name="com.example.swiftdrive.view.auth.ForgotPasswordPageFragment"
         android:label="fragment_forgot_password_page"
         tools:layout="@layout/fragment_forgot_password_page" >
         <action
@@ -93,7 +100,7 @@
     </fragment>
     <fragment
         android:id="@+id/resetPasswordPageFragment"
-        android:name="com.example.swiftdrive.pages.view.auth.ResetPasswordPageFragment"
+        android:name="com.example.swiftdrive.view.auth.ResetPasswordPageFragment"
         android:label="fragment_reset_password_page"
         tools:layout="@layout/fragment_reset_password_page" >
         <action
@@ -106,35 +113,17 @@
     </fragment>
     <fragment
         android:id="@+id/wrapperFragment"
-        android:name="com.example.swiftdrive.pages.view.mainPage.WrapperFragment"
+        android:name="com.example.swiftdrive.view.mainPage.WrapperFragment"
         android:label="fragment_wrapper"
         tools:layout="@layout/fragment_wrapper" >
         <action
-            android:id="@+id/action_wrapperFragment_to_main_nav_graph"
-            app:destination="@id/main_nav_graph"/>
+            android:id="@+id/action_wrapperFragment_to_nav_main"
+            app:destination="@id/nav_main"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
-    <navigation
-        android:id="@+id/main_nav_graph"
-        app:startDestination="@id/homePageFragment">
-        <fragment
-            android:id="@+id/homePageFragment"
-            android:name="com.example.swiftdrive.pages.view.mainPage.HomePageFragment"
-            android:label="fragment_home_page"
-            tools:layout="@layout/fragment_home_page"/>
-        <fragment
-            android:id="@+id/reservePageFragment"
-            android:name="com.example.swiftdrive.pages.view.mainPage.ReservePageFragment"
-            android:label="fragment_reserve_page"
-            tools:layout="@layout/fragment_reserve_page" />
-        <fragment
-            android:id="@+id/mapPageFragment"
-            android:name="com.example.swiftdrive.pages.view.mainPage.MapPageFragment"
-            android:label="fragment_map_page"
-            tools:layout="@layout/fragment_map_page" />
-        <fragment
-            android:id="@+id/profilePageFragment"
-            android:name="com.example.swiftdrive.pages.view.mainPage.ProfilePageFragment"
-            android:label="fragment_profile_page"
-            tools:layout="@layout/fragment_profile_page" />
-    </navigation>
+    <include app:graph="@navigation/nav_main" />
+
 </navigation>

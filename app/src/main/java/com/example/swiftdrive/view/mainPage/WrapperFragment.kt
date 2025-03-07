@@ -11,6 +11,7 @@ import androidx.navigation.fragment.fragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.swiftdrive.R
 import com.example.swiftdrive.databinding.FragmentWrapperBinding
+import com.example.swiftdrive.view.profile.TwoFactorAuthPageFragment
 
 class WrapperFragment : Fragment() {
     private lateinit var binding: FragmentWrapperBinding
@@ -24,27 +25,25 @@ class WrapperFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navHostFragment =
-            childFragmentManager.findFragmentById(R.id.mainFragmentContainer) as NavHostFragment
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.mainFragmentContainer) as NavHostFragment
         val navController = navHostFragment.navController
-
-        val navGraph = navController.createGraph(startDestination = R.id.homePageFragment) {
-            fragment<HomePageFragment>(R.id.homePageFragment)
-            fragment<ReservePageFragment>(R.id.reservePageFragment)
-            fragment<MapPageFragment>(R.id.mapPageFragment)
-            fragment<ProfilePageFragment>(R.id.profilePageFragment)
-        }
-
-        navController.graph = navGraph
-
         binding.bottomNavigationView.setupWithNavController(navController)
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.profilePageFragment) {
-                binding.toolbar.visibility = View.GONE
-                binding.v1.visibility = View.GONE
-            } else {
-                binding.toolbar.visibility = View.VISIBLE
-                binding.v1.visibility = View.VISIBLE
+
+        navController.addOnDestinationChangedListener{ _, destination, _ ->
+            when(destination.id){
+                R.id.twoFactorAuthPageFragment -> {
+                    binding.bottomNavigationView.visibility = View.GONE
+                    binding.v1.visibility = View.GONE
+                    binding.toolbar.visibility = View.GONE
+                }
+                R.id.profilePageFragment -> {
+                    binding.toolbar.visibility = View.GONE
+                    binding.v1.visibility = View.GONE
+                }else -> {
+                    binding.bottomNavigationView.visibility = View.VISIBLE
+                    binding.toolbar.visibility = View.VISIBLE
+                    binding.v1.visibility = View.VISIBLE
+                }
             }
         }
     }

@@ -21,7 +21,7 @@ class RegisterPageFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterPageBinding
     private val authViewModel: AuthViewModel by viewModels {
-        AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance()))
+        AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance(), requireContext()))
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

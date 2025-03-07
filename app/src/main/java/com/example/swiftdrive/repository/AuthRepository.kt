@@ -1,5 +1,7 @@
 package com.example.swiftdrive.repository
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -8,9 +10,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 
-class AuthRepository(private val auth: FirebaseAuth){
+class AuthRepository(private val auth: FirebaseAuth, context: Context){
 
     val firestore = FirebaseFirestore.getInstance()
+    private val sharedPreferences = SharedPrefManager(context)
 
     fun registerUser(email: String, password: String) = flow {
         try {
@@ -32,7 +35,15 @@ class AuthRepository(private val auth: FirebaseAuth){
     fun loginUser(email: String, password: String): Flow<Result<AuthResult>> = flow {
         try{
             val result = auth.signInWithEmailAndPassword(email, password).await()
-            emit(Result.success(result))
+            val user = result.user
+
+            if (user != null) {
+                val token = user.getIdToken(true).await().token
+                if (token != null) {
+                    sharedPreferences.saveUserData(user.uid, token)
+                    emit(Result.success(result))
+                }
+            }
         }catch (e: Exception){
             emit(Result.failure(e))
         }

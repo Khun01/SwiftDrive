@@ -9,6 +9,12 @@ android {
     namespace = "com.example.swiftdrive"
     compileSdk = 35
 
+    packaging {
+        resources {
+            excludes += "META-INF/DEPENDENCIES"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.example.swiftdrive"
         minSdk = 24
@@ -48,6 +54,13 @@ dependencies {
 
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.auth.ktx)
+
+    implementation(libs.twilio.v960)
+    
+    // retrofit
+    implementation (libs.retrofit)
+    // gson converter
+    implementation (libs.converter.gson)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

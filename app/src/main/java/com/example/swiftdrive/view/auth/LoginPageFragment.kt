@@ -20,7 +20,7 @@ class LoginPageFragment : Fragment() {
 
     private  lateinit var  binding: FragmentLoginPageBinding
     private val authViewModel: AuthViewModel by viewModels {
-        com.example.swiftdrive.viewModel.AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance()))
+        com.example.swiftdrive.viewModel.AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance(), requireContext()))
     }
 
     override fun onCreateView(

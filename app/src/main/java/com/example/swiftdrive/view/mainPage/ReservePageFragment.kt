@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.swiftdrive.databinding.FragmentReservePageBinding
-import com.example.swiftdrive.pages.view.adapter.RecommendedForYouAdapter
+import com.example.swiftdrive.view.adapter.RecommendedForYouAdapter
 import com.example.swiftdrive.model.RecommendedForYou
 
 class ReservePageFragment : Fragment() {
