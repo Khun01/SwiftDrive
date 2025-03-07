@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginPageFragment"
-        android:name="com.example.swiftdrive.view.auth.LoginPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.LoginPageFragment"
         android:label="fragment_login_page"
         tools:layout="@layout/fragment_login_page" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/landingPageFragment"
-        android:name="com.example.swiftdrive.view.LandingPageFragment"
+        android:name="com.example.swiftdrive.ui.view.LandingPageFragment"
         android:label="fragment_landing_page"
         tools:layout="@layout/fragment_landing_page" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerPageFragment"
-        android:name="com.example.swiftdrive.view.auth.RegisterPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.RegisterPageFragment"
         android:label="fragment_register_page"
         tools:layout="@layout/fragment_register_page" >
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordPageFragment"
-        android:name="com.example.swiftdrive.view.auth.ForgotPasswordPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.ForgotPasswordPageFragment"
         android:label="fragment_forgot_password_page"
         tools:layout="@layout/fragment_forgot_password_page" >
         <action
@@ -87,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/verificationPageFragment"
-        android:name="com.example.swiftdrive.view.auth.VerificationPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.VerificationPageFragment"
         android:label="fragment_verification_page"
         tools:layout="@layout/fragment_verification_page" >
         <action
@@ -100,7 +100,7 @@
     </fragment>
     <fragment
         android:id="@+id/resetPasswordPageFragment"
-        android:name="com.example.swiftdrive.view.auth.ResetPasswordPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.ResetPasswordPageFragment"
         android:label="fragment_reset_password_page"
         tools:layout="@layout/fragment_reset_password_page" >
         <action
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/wrapperFragment"
-        android:name="com.example.swiftdrive.view.mainPage.WrapperFragment"
+        android:name="com.example.swiftdrive.ui.view.mainPage.WrapperFragment"
         android:label="fragment_wrapper"
         tools:layout="@layout/fragment_wrapper" >
         <action

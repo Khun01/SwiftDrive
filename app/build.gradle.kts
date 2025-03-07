@@ -51,9 +51,9 @@ dependencies {
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
-
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.database)
 
     implementation(libs.twilio.v960)
     
@@ -71,7 +71,6 @@ dependencies {
     // For navigation controller
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation(libs.firebase.database)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
