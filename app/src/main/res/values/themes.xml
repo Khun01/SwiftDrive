@@ -1,8 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SwiftDrive" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Primary colors -->
+        <item name="colorPrimary">#FF4C29</item>
+
+        <!-- Text colors -->
+        <item name="colorOnPrimary">#222831</item>
+        <item name="colorOnSecondary">#4B5660</item>
+        <item name="colorOnSurfaceVariant">#A0A5AA</item>
+
+        <!-- Container colors -->
+        <item name="colorSurface">#DDE3E7</item>
+
+        <!-- Background colors -->
+        <item name="android:windowBackground">#EAEFF2</item>
     </style>
 
     <style name="Theme.SwiftDrive" parent="Base.Theme.SwiftDrive" />

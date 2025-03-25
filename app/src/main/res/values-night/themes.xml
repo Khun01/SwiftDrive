@@ -1,7 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SwiftDrive" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Primary colors -->
+        <item name="colorPrimary">#FF4C29</item>
+
+        <!-- Text colors -->
+        <item name="colorOnPrimary">#EEEEEE</item>
+        <item name="colorOnSecondary">#B0B0B0</item>
+        <item name="colorOnSurfaceVariant">#666A6D</item>
+
+        <!-- Container colors -->
+        <item name="colorSurface">#292F3F</item>
+
+        <!-- Background colors -->
+        <item name="android:windowBackground">#222831</item>
     </style>
 </resources>
