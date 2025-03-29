@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.swiftdrive.R
 import androidx.navigation.fragment.findNavController
 import com.example.swiftdrive.data.repository.AuthRepository
+import com.example.swiftdrive.data.repository.RetrofitClient
 import com.example.swiftdrive.databinding.FragmentLoginPageBinding
 import com.example.swiftdrive.ui.viewModel.AuthViewModel
 import com.example.swiftdrive.ui.viewModel.AuthViewModelFactory
@@ -20,6 +21,8 @@ import kotlinx.coroutines.launch
 class LoginPageFragment : Fragment() {
 
     private  lateinit var  binding: FragmentLoginPageBinding
+    lateinit var otp: String
+
     private val authViewModel: AuthViewModel by viewModels {
         AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance(), requireContext()))
     }
@@ -45,6 +48,8 @@ class LoginPageFragment : Fragment() {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
             authViewModel.loginUser(email, password)
+            otp = this.generate2FACode();
+            RetrofitClient.sendWhatsAppOtp(otp);
         }
         binding.backArrow.setOnClickListener {
             findNavController().navigateUp()
@@ -58,13 +63,24 @@ class LoginPageFragment : Fragment() {
                     authResult
                         .onSuccess{
                             Toast.makeText(requireContext(), "Logged in successful!", Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_loginPageFragment_to_wrapperFragment)
+                            val bundle = Bundle()
+                            bundle.putString("otp", otp)
+                            println("Bundle ${bundle.keySet()}")
+                            findNavController().navigate(R.id.action_loginPageFragment_to_whatsAppOtpFragment, bundle)
+//                            findNavController().navigate(R.id.action_loginPageFragment_to_wrapperFragment)
                         }
                         .onFailure { exception ->
+                            print(exception.message)
                             Toast.makeText(requireContext(), "Error: ${exception.message}", Toast.LENGTH_LONG).show()
                         }
                 }
             }
         }
+    }
+
+    private fun generate2FACode(): String {
+        val code = (100000..999999).random()
+        println("generate: $code")
+        return code.toString()
     }
 }

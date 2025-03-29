@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="24dp"
+    tools:context=".ui.view.mainPage.WhatsAppOtpFragment">
+
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_back"
+        app:tint="?attr/colorOnPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Verify Your OTP"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        android:textSize="40sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintTop_toBottomOf="@id/backArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We’ve sent a 6-digit code to your registered number. Enter it below."
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/quicksand_regular"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintTop_toBottomOf="@id/tv1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTP Code"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="16sp"
+        android:fontFamily="@font/quicksand_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- OTP Input Field -->
+    <EditText
+        android:id="@+id/etOtp"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:hint="Enter OTP"
+        android:inputType="number"
+        android:gravity="center"
+        android:maxLength="6"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_radius"
+        android:backgroundTint="?attr/colorSurface"
+        app:layout_constraintTop_toBottomOf="@+id/tv3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btnSubmitOtp"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:text="Verify OTP"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etOtp"
+        android:textSize="16sp"
+        android:textColor="#EEEEEE"
+        android:fontFamily="@font/quicksand_bold"
+        android:background="@drawable/border_radius"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
