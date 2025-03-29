@@ -1,6 +1,7 @@
 package com.example.swiftdrive.ui.view.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,21 +45,26 @@ class TwoFactorAuthPageFragment : Fragment() {
         val phoneNumber = binding.phoneNumberEditText.text.toString()
         if (phoneNumber.isNotEmpty()) {
             val bundle = Bundle()
-            viewModel.sendOTP(phoneNumber)
-            bundle.putString("phoneNumber", phoneNumber)
-            findNavController().navigate(R.id.action_twoFactorAuthPageFragment_to_twoFactoAuthOtpFragment, bundle)
+//            viewModel.sendOTP(phoneNumber)
+//            bundle.putString("phoneNumber", phoneNumber)
+//            findNavController().navigate(R.id.action_twoFactorAuthPageFragment_to_twoFactoAuthOtpFragment, bundle)
         } else {
             Toast.makeText(context, "Enter a valid phone number", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun phoneNumberResponse(){
+    private fun phoneNumberResponse() {
         viewModel.phoneNumberResponse.observe(viewLifecycleOwner) { response ->
+            Log.d("PhoneResponse", "Response: $response") // Logs the full response object
+
             if (response.status == "success") {
+                Log.d("PhoneResponse", "OTP sent successfully!") // Logs success message
                 Toast.makeText(requireContext(), "OTP sent successfully!", Toast.LENGTH_SHORT).show()
             } else {
+                Log.e("PhoneResponse", "Failed to send OTP: $response") // Logs error message
                 Toast.makeText(requireContext(), "Failed to send OTP", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 }

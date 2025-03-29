@@ -25,8 +25,8 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
-            android:id="@+id/action_loginPageFragment_to_wrapperFragment"
-            app:destination="@id/wrapperFragment"
+            android:id="@+id/action_loginPageFragment_to_whatsAppOtpFragment"
+            app:destination="@id/whatsAppOtpFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -125,5 +125,22 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <include app:graph="@navigation/nav_main" />
+    <fragment
+        android:id="@+id/whatsAppOtpFragment"
+        android:name="com.example.swiftdrive.ui.view.mainPage.WhatsAppOtpFragment"
+        android:label="fragment_whats_app_otp"
+        tools:layout="@layout/fragment_whats_app_otp" >
+        <action
+            android:id="@+id/action_whatsAppOtpFragment_to_wrapperFragment"
+            app:destination="@id/wrapperFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="otp"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 
 </navigation>
