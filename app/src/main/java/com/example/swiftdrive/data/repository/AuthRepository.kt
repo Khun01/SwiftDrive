@@ -47,4 +47,14 @@ class AuthRepository(private val auth: FirebaseAuth, context: Context){
             emit(Result.failure(e))
         }
     }
+
+    fun logoutUser(): Flow<Result<Unit>> = flow {
+        try {
+            sharedPreferences.clearData()
+            auth.signOut()
+            emit(Result.success(Unit))
+        } catch (e: Exception) {
+            emit(Result.failure(e))
+        }
+    }
 }

@@ -31,8 +31,4 @@ object ApiTwilioClient {
 
         return retrofit.create(ApiTwilioService::class.java)
     }
-
-    fun getAuthHeader(): String {
-        return Credentials.basic(ACCOUNT_SID, AUTH_TOKEN)
-    }
 }

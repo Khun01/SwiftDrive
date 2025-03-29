@@ -21,13 +21,11 @@ class LandingPageFragment : Fragment() {
             val sharedPrefManager = SharedPrefManager(requireContext())
             val token = sharedPrefManager.getToken()
             val userId = sharedPrefManager.getUserId()
-            findNavController().navigate(R.id.action_landingPageFragment_to_loginPageFragment)
-
-//            if(!token.isNullOrEmpty() && !userId.isNullOrEmpty()){
-//                findNavController().navigate(R.id.action_landingPageFragment_to_wrapperFragment)
-//            }else{
-//                findNavController().navigate(R.id.action_landingPageFragment_to_loginPageFragment)
-//            }
+            if(!token.isNullOrEmpty() && !userId.isNullOrEmpty()){
+                findNavController().navigate(R.id.action_landingPageFragment_to_wrapperFragment)
+            }else{
+                findNavController().navigate(R.id.action_landingPageFragment_to_loginPageFragment)
+            }
         }
         binding.register.setOnClickListener {
             findNavController().navigate(R.id.action_landingPageFragment_to_registerPageFragment)
