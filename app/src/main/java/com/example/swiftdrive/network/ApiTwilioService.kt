@@ -22,4 +22,12 @@ interface ApiTwilioService {
         @Field("To") phoneNumber: String,
         @Field("Code") otp: String
     ): TwilioResponse
+
+    @FormUrlEncoded
+    @POST("{serviceSid}/Verifications")
+    suspend fun sendEmailVerification(
+        @Path("serviceSid") serviceSid: String,
+        @Field("To") email: String,
+        @Field("Channel") channel: String = "email"
+    ): TwilioResponse
 }

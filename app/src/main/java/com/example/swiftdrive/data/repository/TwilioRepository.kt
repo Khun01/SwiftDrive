@@ -13,4 +13,8 @@ class TwilioRepository {
     suspend fun verifyOTP(phoneNumber: String, otp: String): TwilioResponse {
         return ApiTwilioClient.api.verifyOTP(serviceSid, phoneNumber, otp)
     }
+
+    suspend fun sendEmailVerification(email: String): TwilioResponse {
+        return ApiTwilioClient.api.sendEmailVerification(serviceSid, email)
+    }
 }

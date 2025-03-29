@@ -6,12 +6,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.swiftdrive.data.repository.AuthRepository
 import com.google.firebase.auth.AuthResult
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val authRepository: AuthRepository) : ViewModel() {
 
     private val _authState = MutableStateFlow<Result<AuthResult>?>(null)
     val authState: MutableStateFlow<Result<AuthResult>?> = _authState
+
+    private val _logoutState = MutableStateFlow<Result<Unit>?>(null)
+    val logoutState: StateFlow<Result<Unit>?> = _logoutState.asStateFlow()
 
     fun registerUser(email: String, password:String){
         viewModelScope.launch {
@@ -39,6 +44,14 @@ class AuthViewModel(private val authRepository: AuthRepository) : ViewModel() {
                 }.onFailure { exception ->
                     Log.e("AuthViewModel", "logged in Failed: ${exception.message}")
                 }
+            }
+        }
+    }
+
+    fun logoutUser() {
+        viewModelScope.launch {
+            authRepository.logoutUser().collect { result ->
+                _logoutState.value = result
             }
         }
     }

@@ -1,11 +1,9 @@
 package com.example.swiftdrive.data.repository
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
@@ -44,6 +42,16 @@ class AuthRepository(private val auth: FirebaseAuth, context: Context){
                 }
             }
         }catch (e: Exception){
+            emit(Result.failure(e))
+        }
+    }
+
+    fun logoutUser(): Flow<Result<Unit>> = flow {
+        try {
+            sharedPreferences.clearData()
+            auth.signOut()
+            emit(Result.success(Unit))
+        } catch (e: Exception) {
             emit(Result.failure(e))
         }
     }

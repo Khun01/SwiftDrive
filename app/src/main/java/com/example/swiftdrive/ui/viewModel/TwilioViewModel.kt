@@ -15,6 +15,9 @@ class TwilioViewModel(private val repository: TwilioRepository): ViewModel() {
     private val _verificationResponse = MutableLiveData<TwilioResponse>()
     val verificationResponse: LiveData<TwilioResponse> get() = _verificationResponse
 
+    private val _emailSendResponse = MutableLiveData<TwilioResponse>()
+    val emailSendResponse: LiveData<TwilioResponse> get() = _emailSendResponse
+
     fun sendOTP(phoneNumber: String) {
         viewModelScope.launch {
             try {
@@ -33,6 +36,17 @@ class TwilioViewModel(private val repository: TwilioRepository): ViewModel() {
                 _verificationResponse.postValue(response)
             } catch (e: Exception) {
                 _verificationResponse.postValue(TwilioResponse("failed"))
+            }
+        }
+    }
+
+    fun sendEmailVerification(email: String) {
+        viewModelScope.launch {
+            try {
+                val response = repository.sendEmailVerification(email)
+                _emailSendResponse.postValue(response)
+            } catch (e: Exception) {
+                _emailSendResponse.postValue(TwilioResponse("failed"))
             }
         }
     }

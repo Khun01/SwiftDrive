@@ -65,6 +65,13 @@
         android:label="fragment_register_page"
         tools:layout="@layout/fragment_register_page" >
         <action
+            android:id="@+id/action_registerPageFragment_to_emailVerificationPageFragment"
+            app:destination="@id/emailVerificationPageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
             android:id="@+id/action_registerPageFragment_to_loginPageFragment"
             app:destination="@id/loginPageFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
@@ -125,5 +132,27 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <include app:graph="@navigation/nav_main" />
+    <fragment
+        android:id="@+id/emailVerificationPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.EmailVerificationPageFragment"
+        android:label="fragment_email_verification_page"
+        tools:layout="@layout/fragment_email_verification_page" >
+        <action
+            android:id="@+id/action_emailVerificationPageFragment_to_emailVerificationSuccessPageFragment"
+            app:destination="@id/emailVerificationSuccessPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailVerificationSuccessPageFragment"
+        android:name="com.example.swiftdrive.ui.view.auth.EmailVerificationSuccessPageFragment"
+        android:label="fragment_email_verification_success_page"
+        tools:layout="@layout/fragment_email_verification_success_page" >
+        <action
+            android:id="@+id/action_emailVerificationSuccessPageFragment_to_loginPageFragment"
+            app:destination="@id/loginPageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
 </navigation>
