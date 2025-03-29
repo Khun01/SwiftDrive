@@ -16,9 +16,6 @@ class ProfilePageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View{
         binding = FragmentProfilePageBinding.inflate(inflater, container, false)
-        binding.twoFactorAuth.setOnClickListener{
-            findNavController().navigate(R.id.action_profilePageFragment_to_twoFactorAuthPageFragment)
-        }
         return binding.root
     }
 }

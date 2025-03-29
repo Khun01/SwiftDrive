@@ -19,7 +19,7 @@ class WhatsAppOtpFragment : Fragment() {
         val otp = arguments?.getString("otp")
         binding.btnSubmitOtp.setOnClickListener {
             val inputOtp = binding.etOtp.text.toString()
-            println("otp: $otp")
+            println("The otp is: $otp")
             if (otp == inputOtp){
                 findNavController().navigate(R.id.action_whatsAppOtpFragment_to_wrapperFragment)
             }else{

@@ -28,11 +28,6 @@ class WrapperFragment : Fragment() {
 
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             when(destination.id){
-                R.id.twoFactorAuthPageFragment, R.id.twoFactoAuthOtpFragment, R.id.twoFactorAuthCompletedFragment -> {
-                    binding.bottomNavigationView.visibility = View.GONE
-                    binding.v1.visibility = View.GONE
-                    binding.toolbar.visibility = View.GONE
-                }
                 R.id.profilePageFragment -> {
                     binding.bottomNavigationView.visibility = View.VISIBLE
                     binding.toolbar.visibility = View.GONE

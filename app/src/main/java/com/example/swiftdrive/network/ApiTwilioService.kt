@@ -29,7 +29,6 @@ interface ApiTwilioService {
     @POST("Accounts/{AccountSid}/Messages.json")
     fun sendWhatsAppMessage(
         @Path("AccountSid") accountSid: String,
-        @Header("Authorization") authHeader: String, // Basic Auth
         @Field("To") to: String,
         @Field("From") from: String,
         @Field("Body") body: String

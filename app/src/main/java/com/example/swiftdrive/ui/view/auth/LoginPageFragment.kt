@@ -11,10 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import com.example.swiftdrive.R
 import androidx.navigation.fragment.findNavController
 import com.example.swiftdrive.data.repository.AuthRepository
-import com.example.swiftdrive.data.repository.RetrofitClient
+import com.example.swiftdrive.data.repository.TwilioRepository
 import com.example.swiftdrive.databinding.FragmentLoginPageBinding
+import com.example.swiftdrive.network.ApiTwilioClient
 import com.example.swiftdrive.ui.viewModel.AuthViewModel
 import com.example.swiftdrive.ui.viewModel.AuthViewModelFactory
+import com.example.swiftdrive.ui.viewModel.TwilioViewModel
+import com.example.swiftdrive.ui.viewModel.TwilioViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
@@ -25,6 +28,10 @@ class LoginPageFragment : Fragment() {
 
     private val authViewModel: AuthViewModel by viewModels {
         AuthViewModelFactory(AuthRepository(FirebaseAuth.getInstance(), requireContext()))
+    }
+
+    private val twilioViewModel: TwilioViewModel by viewModels {
+        TwilioViewModelFactory(TwilioRepository())
     }
 
     override fun onCreateView(
@@ -38,6 +45,7 @@ class LoginPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeLoggedIn()
+        observeOtpResponse()
         binding.register.setOnClickListener {
             findNavController().navigate(R.id.action_loginPageFragment_to_registerPageFragment)
         }
@@ -49,7 +57,7 @@ class LoginPageFragment : Fragment() {
             val password = binding.passwordEditText.text.toString()
             authViewModel.loginUser(email, password)
             otp = this.generate2FACode();
-            RetrofitClient.sendWhatsAppOtp(otp);
+            twilioViewModel.sendOtp(otp)
         }
         binding.backArrow.setOnClickListener {
             findNavController().navigateUp()
@@ -67,13 +75,26 @@ class LoginPageFragment : Fragment() {
                             bundle.putString("otp", otp)
                             println("Bundle ${bundle.keySet()}")
                             findNavController().navigate(R.id.action_loginPageFragment_to_whatsAppOtpFragment, bundle)
-//                            findNavController().navigate(R.id.action_loginPageFragment_to_wrapperFragment)
                         }
                         .onFailure { exception ->
                             print(exception.message)
                             Toast.makeText(requireContext(), "Error: ${exception.message}", Toast.LENGTH_LONG).show()
                         }
                 }
+            }
+        }
+    }
+
+    private fun observeOtpResponse() {
+        lifecycleScope.launch {
+            twilioViewModel.messageResponse.observe(viewLifecycleOwner) { response ->
+                println("Response in sending OTP is: $response")
+                Toast.makeText(requireContext(), "OTP Sent!", Toast.LENGTH_SHORT).show()
+            }
+
+            twilioViewModel.error.observe(viewLifecycleOwner) { errorMsg ->
+                println("Response in sending OTP is: $errorMsg")
+                Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show()
             }
         }
     }
